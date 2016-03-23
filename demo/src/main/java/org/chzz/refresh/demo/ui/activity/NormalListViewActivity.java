@@ -19,7 +19,7 @@ import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildLongClickListener;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NormalListViewActivity extends BaseActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class NormalListViewActivity extends BaseActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.RefreshLayoutDelegate {
     private CHZZRefreshLayout mRefreshLayout;
     private ListView mDataLv;
     private NormalAdapterViewAdapter mAdapter;
@@ -106,7 +106,7 @@ public class NormalListViewActivity extends BaseActivity implements AdapterView.
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             mRefreshLayout.endRefreshing();
@@ -129,7 +129,7 @@ public class NormalListViewActivity extends BaseActivity implements AdapterView.
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             mRefreshLayout.endLoadingMore();

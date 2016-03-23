@@ -16,7 +16,7 @@ import org.chzz.refresh.demo.R;
  * 创建时间:15/7/21 下午11:42
  * 描述:
  */
-public class RefreshWebViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class RefreshWebViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate {
     private static final String TAG = RefreshWebViewFragment.class.getSimpleName();
     private CHZZRefreshLayout mRefreshLayout;
     private WebView mContentWv;
@@ -61,12 +61,12 @@ public class RefreshWebViewFragment extends BaseFragment implements CHZZRefreshL
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mContentWv.reload();
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         Log.i(TAG, "加载更多");
         return false;
     }

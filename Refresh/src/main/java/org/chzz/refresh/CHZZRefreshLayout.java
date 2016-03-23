@@ -32,9 +32,9 @@ import android.widget.ScrollView;
 
 import com.nineoldandroids.animation.ValueAnimator;
 
-import java.lang.reflect.Field;
-
 import org.chzz.refresh.util.CHZZRefreshScrollingUtil;
+
+import java.lang.reflect.Field;
 
 /**
  * 作者:copy 邮件:2499551993@qq.com
@@ -80,7 +80,7 @@ public class CHZZRefreshLayout extends LinearLayout {
     /**
      * 下拉刷新和上拉加载更多代理
      */
-    private BGARefreshLayoutDelegate mDelegate;
+    private RefreshLayoutDelegate mDelegate;
     /**
      * 手指按下时，y轴方向的偏移量
      */
@@ -703,14 +703,14 @@ public class CHZZRefreshLayout extends LinearLayout {
     }
 
     /**
-     * 切换到正在刷新状态，会调用delegate的onBGARefreshLayoutBeginRefreshing方法
+     * 切换到正在刷新状态，会调用delegate的onRefreshLayoutBeginRefreshing方法
      */
     public void beginRefreshing() {
         if (mCurrentRefreshStatus != RefreshStatus.REFRESHING && mDelegate != null) {
             mCurrentRefreshStatus = RefreshStatus.REFRESHING;
             changeRefreshHeaderViewToZero();
             handleRefreshStatusChanged();
-            mDelegate.onBGARefreshLayoutBeginRefreshing(this);
+            mDelegate.onRefreshLayoutBeginRefreshing(this);
         }
     }
 
@@ -759,10 +759,10 @@ public class CHZZRefreshLayout extends LinearLayout {
     }
 
     /**
-     * 开始上拉加载更多，会触发delegate的onBGARefreshLayoutBeginRefreshing方法
+     * 开始上拉加载更多，会触发delegate的onRefreshLayoutBeginRefreshing方法
      */
     public void beginLoadingMore() {
-        if (!mIsLoadingMore && mLoadMoreFooterView != null && mDelegate != null && mDelegate.onBGARefreshLayoutBeginLoadingMore(this)) {
+        if (!mIsLoadingMore && mLoadMoreFooterView != null && mDelegate != null && mDelegate.onRefreshLayoutBeginLoadingMore(this)) {
             mIsLoadingMore = true;
 
             if (mIsShowLoadingMoreView) {
@@ -832,15 +832,15 @@ public class CHZZRefreshLayout extends LinearLayout {
      *
      * @param delegate
      */
-    public void setDelegate(BGARefreshLayoutDelegate delegate) {
+    public void setDelegate(RefreshLayoutDelegate delegate) {
         mDelegate = delegate;
     }
 
-    public interface BGARefreshLayoutDelegate {
+    public interface RefreshLayoutDelegate {
         /**
          * 开始刷新
          */
-        void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout);
+        void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout);
 
         /**
          * 开始加载更多。由于监听了ScrollView、RecyclerView、AbsListView滚动到底部的事件，所以这里采用返回boolean来处理是否加载更多。否则使用endLoadingMore方法会失效
@@ -848,7 +848,7 @@ public class CHZZRefreshLayout extends LinearLayout {
          * @param refreshLayout
          * @return 如果要开始加载更多则返回true，否则返回false。（返回false的场景：没有网络、一共只有x页数据并且已经加载了x页数据了）
          */
-        boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout);
+        boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout);
     }
 
     public enum RefreshStatus {

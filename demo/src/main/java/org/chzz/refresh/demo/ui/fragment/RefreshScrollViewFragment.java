@@ -19,7 +19,7 @@ import org.chzz.refresh.demo.ui.activity.MainActivity;
  * 创建时间:15/5/21 上午1:22
  * 描述:
  */
-public class RefreshScrollViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class RefreshScrollViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate {
     private static final String TAG = RefreshScrollViewFragment.class.getSimpleName();
     private CHZZRefreshLayout mRefreshLayout;
     private TextView mClickableLabelTv;
@@ -61,7 +61,7 @@ public class RefreshScrollViewFragment extends BaseFragment implements CHZZRefre
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -89,7 +89,7 @@ public class RefreshScrollViewFragment extends BaseFragment implements CHZZRefre
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override

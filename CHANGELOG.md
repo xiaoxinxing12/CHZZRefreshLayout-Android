@@ -62,12 +62,12 @@ Version 1.0.3 *(2014-6-14)*
 ----------------------------
 
 - 修改beginRefreshing和beginLoadingMore方法，调用这两个方法时会触发delegate方法
-- 为delegate的onBGARefreshLayoutBeginLoadingMore方法添加boolean类型的返回参数。如果要开始加载更多则返回true，否则返回false。（返回false的场景：没有网络、一共只有x页数据并且已经加载了x页数据了）
+- 为delegate的onRefreshLayoutBeginLoadingMore方法添加boolean类型的返回参数。如果要开始加载更多则返回true，否则返回false。（返回false的场景：没有网络、一共只有x页数据并且已经加载了x页数据了）
 
 Version 1.0.2 *(2014-6-9)*
 ----------------------------
 
-- 公开BGARefreshLayout的beginRefreshing和beginLoadingMore方法，方便刚进入界面时自动进入刷新状态。但是调用这两个方法时不会触发delegate方法，开发者需单独调用onBGARefreshLayoutBeginRefreshing(mRefreshLayout)方法（参考iOS中的UIRefreshControl，不晓得这样是好是坏）
+- 公开BGARefreshLayout的beginRefreshing和beginLoadingMore方法，方便刚进入界面时自动进入刷新状态。但是调用这两个方法时不会触发delegate方法，开发者需单独调用onRefreshLayoutBeginRefreshing(mRefreshLayout)方法（参考iOS中的UIRefreshControl，不晓得这样是好是坏）
 - 为delegate方法增加BGARefreshLayout参数
 
 Version 1.0.1 *(2014-6-6)*

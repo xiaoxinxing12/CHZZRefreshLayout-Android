@@ -31,7 +31,7 @@ import retrofit2.Response;
  * 创建时间:15/5/22 10:06
  * 描述:
  */
-public class RefreshSwipeRecyclerViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate, BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener {
+public class RefreshSwipeRecyclerViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate, BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener {
     private SwipeRecyclerViewAdapter mAdapter;
     private CHZZRefreshLayout mRefreshLayout;
     private RecyclerView mDataRv;
@@ -98,7 +98,7 @@ public class RefreshSwipeRecyclerViewFragment extends BaseFragment implements CH
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             mRefreshLayout.endRefreshing();
@@ -126,7 +126,7 @@ public class RefreshSwipeRecyclerViewFragment extends BaseFragment implements CH
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             mRefreshLayout.endLoadingMore();

@@ -28,7 +28,7 @@ import retrofit2.Response;
  * 创建时间:15/5/22 10:06
  * 描述:
  */
-public class RefreshStaggeredRecyclerViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate, BGAOnRVItemClickListener, BGAOnRVItemLongClickListener {
+public class RefreshStaggeredRecyclerViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate, BGAOnRVItemClickListener, BGAOnRVItemLongClickListener {
     private static final String TAG = RefreshStaggeredRecyclerViewFragment.class.getSimpleName();
     private StaggeredRecyclerViewAdapter mAdapter;
     private CHZZRefreshLayout mRefreshLayout;
@@ -80,7 +80,7 @@ public class RefreshStaggeredRecyclerViewFragment extends BaseFragment implement
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             mRefreshLayout.endRefreshing();
@@ -108,7 +108,7 @@ public class RefreshStaggeredRecyclerViewFragment extends BaseFragment implement
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 5) {
             mRefreshLayout.endLoadingMore();

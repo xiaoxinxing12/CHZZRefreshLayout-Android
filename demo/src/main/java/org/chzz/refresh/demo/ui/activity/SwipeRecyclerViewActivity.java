@@ -9,6 +9,14 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import org.chzz.refresh.CHZZNormalRefreshViewHolder;
+import org.chzz.refresh.CHZZRefreshLayout;
+import org.chzz.refresh.demo.R;
+import org.chzz.refresh.demo.adapter.SwipeRecyclerViewAdapter;
+import org.chzz.refresh.demo.model.BannerModel;
+import org.chzz.refresh.demo.model.RefreshModel;
+import org.chzz.refresh.demo.widget.Divider;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,18 +25,10 @@ import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildLongClickListener;
 import cn.bingoogolapple.androidcommon.adapter.BGAOnRVItemClickListener;
 import cn.bingoogolapple.androidcommon.adapter.BGAOnRVItemLongClickListener;
 import cn.bingoogolapple.bgabanner.BGABanner;
-
-import org.chzz.refresh.demo.model.BannerModel;
-import org.chzz.refresh.CHZZNormalRefreshViewHolder;
-import org.chzz.refresh.CHZZRefreshLayout;
-import org.chzz.refresh.demo.R;
-import org.chzz.refresh.demo.adapter.SwipeRecyclerViewAdapter;
-import org.chzz.refresh.demo.model.RefreshModel;
-import org.chzz.refresh.demo.widget.Divider;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SwipeRecyclerViewActivity extends BaseActivity implements BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class SwipeRecyclerViewActivity extends BaseActivity implements BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.RefreshLayoutDelegate {
     private CHZZRefreshLayout mRefreshLayout;
     private BGABanner mBanner;
     private RecyclerView mDataRv;
@@ -154,7 +154,7 @@ public class SwipeRecyclerViewActivity extends BaseActivity implements BGAOnRVIt
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             mRefreshLayout.endRefreshing();
@@ -177,7 +177,7 @@ public class SwipeRecyclerViewActivity extends BaseActivity implements BGAOnRVIt
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             mRefreshLayout.endLoadingMore();

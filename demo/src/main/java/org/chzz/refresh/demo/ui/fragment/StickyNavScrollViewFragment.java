@@ -16,7 +16,7 @@ import org.chzz.refresh.demo.ui.activity.ViewPagerActivity;
  * 创建时间:15/9/27 下午12:53
  * 描述:
  */
-public class StickyNavScrollViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class StickyNavScrollViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate {
     private TextView mClickableLabelTv;
     
     @Override
@@ -44,7 +44,7 @@ public class StickyNavScrollViewFragment extends BaseFragment implements CHZZRef
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -72,7 +72,7 @@ public class StickyNavScrollViewFragment extends BaseFragment implements CHZZRef
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override

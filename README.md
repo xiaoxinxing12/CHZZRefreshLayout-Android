@@ -1,11 +1,11 @@
-:running:BGARefreshLayout-Android:running:
+:running:ChzzRefreshLayout-Android:running:
 ============
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-BGARefreshLayout-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1909)
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/cn.bingoogolapple/bga-refreshlayout/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cn.bingoogolapple/bga-refreshlayout)
 
-开发者使用BGARefreshLayout-Android可以对各种控件实现多种下拉刷新效果、上拉加载更多以及配置自定义头部广告位
+开发者使用ChzzRefreshLayout-Android可以对各种控件实现多种下拉刷新效果、上拉加载更多以及配置自定义头部广告位
 
 ### 目前已经实现了四种下拉刷新效果:
 
@@ -42,12 +42,12 @@ dependencies {
 }
 ```
 
-#### 2.在布局文件中添加BGARefreshLayout
+#### 2.在布局文件中添加ChzzRefreshLayout
 
 **注意：内容控件的高度请使用android:layout_height="0dp"和android:layout_weight="1"**
 
 ```xml
-<cn.bingoogolapple.refreshlayout.BGARefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.chzz.refresh.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_modulename_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -57,7 +57,7 @@ dependencies {
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-</cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+</org.chzz.refresh.CHZZRefreshLayout>
 ```
 
 #### 3.在Activity或者Fragment中配置BGARefreshLayout
@@ -104,7 +104,7 @@ public class ModuleNameActivity extends AppCompatActivity implements BGARefreshL
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
         // 在这里加载最新数据
 
         if (mIsNetworkEnabled) {
@@ -137,7 +137,7 @@ public class ModuleNameActivity extends AppCompatActivity implements BGARefreshL
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
         // 在这里加载更多数据，或者更具产品需求实现上拉刷新也可以
 
         if (mIsNetworkEnabled) {

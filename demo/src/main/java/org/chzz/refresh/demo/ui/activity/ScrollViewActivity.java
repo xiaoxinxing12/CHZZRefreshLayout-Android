@@ -10,7 +10,7 @@ import org.chzz.refresh.CHZZNormalRefreshViewHolder;
 import org.chzz.refresh.CHZZRefreshLayout;
 import org.chzz.refresh.demo.R;
 
-public class ScrollViewActivity extends BaseActivity implements CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class ScrollViewActivity extends BaseActivity implements CHZZRefreshLayout.RefreshLayoutDelegate {
     private CHZZRefreshLayout mRefreshLayout;
     private TextView mClickableLabelTv;
 
@@ -49,7 +49,7 @@ public class ScrollViewActivity extends BaseActivity implements CHZZRefreshLayou
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -77,7 +77,7 @@ public class ScrollViewActivity extends BaseActivity implements CHZZRefreshLayou
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override

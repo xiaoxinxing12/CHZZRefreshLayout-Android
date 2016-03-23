@@ -25,7 +25,7 @@ import retrofit2.Response;
  * 创建时间:15/9/27 下午12:38
  * 描述:
  */
-public class StickyNavListViewFragment extends BaseFragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class StickyNavListViewFragment extends BaseFragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.RefreshLayoutDelegate {
     private ListView mDataLv;
     private NormalAdapterViewAdapter mAdapter;
     private int mNewPageNumber = 0;
@@ -96,7 +96,7 @@ public class StickyNavListViewFragment extends BaseFragment implements AdapterVi
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             ((ViewPagerActivity) getActivity()).endRefreshing();
@@ -126,7 +126,7 @@ public class StickyNavListViewFragment extends BaseFragment implements AdapterVi
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             ((ViewPagerActivity) getActivity()).endLoadingMore();

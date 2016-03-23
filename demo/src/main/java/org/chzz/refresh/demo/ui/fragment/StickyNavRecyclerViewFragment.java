@@ -29,7 +29,7 @@ import retrofit2.Response;
  * 创建时间:15/9/27 下午12:38
  * 描述:
  */
-public class StickyNavRecyclerViewFragment extends BaseFragment implements BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class StickyNavRecyclerViewFragment extends BaseFragment implements BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, BGAOnRVItemClickListener, BGAOnRVItemLongClickListener, CHZZRefreshLayout.RefreshLayoutDelegate {
     private RecyclerView mDataRv;
     private NormalRecyclerViewAdapter mAdapter;
     private int mNewPageNumber = 0;
@@ -102,7 +102,7 @@ public class StickyNavRecyclerViewFragment extends BaseFragment implements BGAOn
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             ((ViewPagerActivity) getActivity()).endRefreshing();
@@ -135,7 +135,7 @@ public class StickyNavRecyclerViewFragment extends BaseFragment implements BGAOn
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             ((ViewPagerActivity) getActivity()).endLoadingMore();

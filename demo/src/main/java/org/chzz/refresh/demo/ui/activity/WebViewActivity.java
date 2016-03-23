@@ -11,7 +11,7 @@ import org.chzz.refresh.CHZZMoocStyleRefreshViewHolder;
 import org.chzz.refresh.CHZZRefreshLayout;
 import org.chzz.refresh.demo.R;
 
-public class WebViewActivity extends BaseActivity implements CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class WebViewActivity extends BaseActivity implements CHZZRefreshLayout.RefreshLayoutDelegate {
     private CHZZRefreshLayout mRefreshLayout;
     private WebView mContentWv;
 
@@ -66,12 +66,12 @@ public class WebViewActivity extends BaseActivity implements CHZZRefreshLayout.B
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mContentWv.reload();
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         Log.i(TAG, "加载更多");
         return false;
     }

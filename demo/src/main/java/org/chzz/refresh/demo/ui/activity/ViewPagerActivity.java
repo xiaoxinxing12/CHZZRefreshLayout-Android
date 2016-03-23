@@ -10,26 +10,24 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import org.chzz.refresh.CHZZNormalRefreshViewHolder;
+import org.chzz.refresh.CHZZRefreshLayout;
+import org.chzz.refresh.demo.R;
+import org.chzz.refresh.demo.model.BannerModel;
+import org.chzz.refresh.demo.ui.fragment.StickyNavListViewFragment;
+import org.chzz.refresh.demo.ui.fragment.StickyNavRecyclerViewFragment;
+import org.chzz.refresh.demo.ui.fragment.StickyNavScrollViewFragment;
+import org.chzz.refresh.demo.ui.fragment.StickyNavWebViewFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 import cn.bingoogolapple.bgaindicator.BGAFixedIndicator;
-
-import org.chzz.refresh.demo.model.BannerModel;
-import org.chzz.refresh.demo.ui.fragment.StickyNavListViewFragment;
-import org.chzz.refresh.demo.ui.fragment.StickyNavScrollViewFragment;
-import org.chzz.refresh.demo.ui.fragment.StickyNavWebViewFragment;
-import org.chzz.refresh.CHZZNormalRefreshViewHolder;
-import org.chzz.refresh.CHZZRefreshLayout;
-import org.chzz.refresh.demo.R;
-
-import org.chzz.refresh.demo.ui.fragment.StickyNavRecyclerViewFragment;
-
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ViewPagerActivity extends BaseActivity implements CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class ViewPagerActivity extends BaseActivity implements CHZZRefreshLayout.RefreshLayoutDelegate {
     private CHZZRefreshLayout mRefreshLayout;
     private BGABanner mBanner;
     private BGAFixedIndicator mIndicator;
@@ -100,34 +98,34 @@ public class ViewPagerActivity extends BaseActivity implements CHZZRefreshLayout
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         switch (mContentVp.getCurrentItem()) {
             case 0:
-                mRecyclerViewFragment.onBGARefreshLayoutBeginRefreshing(refreshLayout);
+                mRecyclerViewFragment.onRefreshLayoutBeginRefreshing(refreshLayout);
                 break;
             case 1:
-                mListViewFragment.onBGARefreshLayoutBeginRefreshing(refreshLayout);
+                mListViewFragment.onRefreshLayoutBeginRefreshing(refreshLayout);
                 break;
             case 2:
-                mScrollViewFragment.onBGARefreshLayoutBeginRefreshing(refreshLayout);
+                mScrollViewFragment.onRefreshLayoutBeginRefreshing(refreshLayout);
                 break;
             case 3:
-                mWebViewFragment.onBGARefreshLayoutBeginRefreshing(refreshLayout);
+                mWebViewFragment.onRefreshLayoutBeginRefreshing(refreshLayout);
                 break;
         }
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         switch (mContentVp.getCurrentItem()) {
             case 0:
-                return mRecyclerViewFragment.onBGARefreshLayoutBeginLoadingMore(refreshLayout);
+                return mRecyclerViewFragment.onRefreshLayoutBeginLoadingMore(refreshLayout);
             case 1:
-                return mListViewFragment.onBGARefreshLayoutBeginLoadingMore(refreshLayout);
+                return mListViewFragment.onRefreshLayoutBeginLoadingMore(refreshLayout);
             case 2:
-                return mScrollViewFragment.onBGARefreshLayoutBeginLoadingMore(refreshLayout);
+                return mScrollViewFragment.onRefreshLayoutBeginLoadingMore(refreshLayout);
             case 3:
-                return mWebViewFragment.onBGARefreshLayoutBeginLoadingMore(refreshLayout);
+                return mWebViewFragment.onRefreshLayoutBeginLoadingMore(refreshLayout);
             default:
                 return false;
         }

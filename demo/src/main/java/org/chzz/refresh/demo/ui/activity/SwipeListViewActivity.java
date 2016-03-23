@@ -7,20 +7,20 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.chzz.refresh.CHZZNormalRefreshViewHolder;
+import org.chzz.refresh.CHZZRefreshLayout;
+import org.chzz.refresh.demo.R;
+import org.chzz.refresh.demo.adapter.SwipeAdapterViewAdapter;
+import org.chzz.refresh.demo.model.RefreshModel;
+
 import java.util.List;
 
 import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildClickListener;
 import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildLongClickListener;
-
-import org.chzz.refresh.demo.adapter.SwipeAdapterViewAdapter;
-import org.chzz.refresh.demo.model.RefreshModel;
-import org.chzz.refresh.CHZZNormalRefreshViewHolder;
-import org.chzz.refresh.CHZZRefreshLayout;
-import org.chzz.refresh.demo.R;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SwipeListViewActivity extends BaseActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.BGARefreshLayoutDelegate {
+public class SwipeListViewActivity extends BaseActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, CHZZRefreshLayout.RefreshLayoutDelegate {
     private CHZZRefreshLayout mRefreshLayout;
     private ListView mDataLv;
     private SwipeAdapterViewAdapter mAdapter;
@@ -121,7 +121,7 @@ public class SwipeListViewActivity extends BaseActivity implements AdapterView.O
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             mRefreshLayout.endRefreshing();
@@ -143,7 +143,7 @@ public class SwipeListViewActivity extends BaseActivity implements AdapterView.O
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             mRefreshLayout.endLoadingMore();

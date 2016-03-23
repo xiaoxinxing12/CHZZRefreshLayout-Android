@@ -29,7 +29,7 @@ import retrofit2.Response;
  * 创建时间:15/7/10 17:45
  * 描述:
  */
-public class RefreshGridViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, View.OnClickListener {
+public class RefreshGridViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener, View.OnClickListener {
     private CHZZRefreshLayout mRefreshLayout;
     private GridView mDataGv;
     private NormalAdapterViewAdapter mAdapter;
@@ -98,7 +98,7 @@ public class RefreshGridViewFragment extends BaseFragment implements CHZZRefresh
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(final CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(final CHZZRefreshLayout refreshLayout) {
         if (mIsNetworkEnabled) {
             // 如果网络可用，则加载网络数据
 
@@ -136,7 +136,7 @@ public class RefreshGridViewFragment extends BaseFragment implements CHZZRefresh
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         Log.i(TAG, "开始加载更多");
 
         if (mIsNetworkEnabled) {

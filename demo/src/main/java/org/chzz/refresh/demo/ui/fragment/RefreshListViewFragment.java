@@ -29,7 +29,7 @@ import retrofit2.Response;
  * 创建时间:15/5/22 10:06
  * 描述:
  */
-public class RefreshListViewFragment extends BaseFragment implements CHZZRefreshLayout.BGARefreshLayoutDelegate, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener {
+public class RefreshListViewFragment extends BaseFragment implements CHZZRefreshLayout.RefreshLayoutDelegate, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BGAOnItemChildClickListener, BGAOnItemChildLongClickListener {
     private static final String TAG = RefreshListViewFragment.class.getSimpleName();
     private CHZZRefreshLayout mRefreshLayout;
     private ListView mDataLv;
@@ -100,7 +100,7 @@ public class RefreshListViewFragment extends BaseFragment implements CHZZRefresh
     }
 
     @Override
-    public void onBGARefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
+    public void onRefreshLayoutBeginRefreshing(CHZZRefreshLayout refreshLayout) {
         mNewPageNumber++;
         if (mNewPageNumber > 4) {
             mRefreshLayout.endRefreshing();
@@ -128,7 +128,7 @@ public class RefreshListViewFragment extends BaseFragment implements CHZZRefresh
     }
 
     @Override
-    public boolean onBGARefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
+    public boolean onRefreshLayoutBeginLoadingMore(CHZZRefreshLayout refreshLayout) {
         mMorePageNumber++;
         if (mMorePageNumber > 4) {
             mRefreshLayout.endLoadingMore();
