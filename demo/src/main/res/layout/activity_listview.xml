@@ -1,11 +1,11 @@
-<org.chzz.refreshlayout.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.chzz.refresh.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/refreshLayout"
     style="@style/MatchMatch"
     android:paddingBottom="@dimen/test_padding_margin"
     android:paddingTop="@dimen/test_padding_margin">
 
-    <org.chzz.refreshlayout.CHZZStickyNavLayout
+    <org.chzz.refresh.CHZZStickyNavLayout
         style="@style/MatchAuto"
         android:layout_marginBottom="@dimen/test_padding_margin"
         android:layout_marginTop="@dimen/test_padding_margin"
@@ -71,5 +71,5 @@
             android:scrollbars="none"
             tools:listitem="@layout/item_normal" />
 
-    </org.chzz.refreshlayout.CHZZStickyNavLayout>
-</org.chzz.refreshlayout.CHZZRefreshLayout>
+    </org.chzz.refresh.CHZZStickyNavLayout>
+</org.chzz.refresh.CHZZRefreshLayout>

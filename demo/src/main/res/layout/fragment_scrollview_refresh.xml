@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.chzz.refreshlayout.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.chzz.refresh.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_scrollview_refresh"
     style="@style/MatchMatch">
 
@@ -63,4 +63,4 @@
                 android:text="最后一条测试文本" />
         </LinearLayout>
     </ScrollView>
-</org.chzz.refreshlayout.CHZZRefreshLayout>
+</org.chzz.refresh.CHZZRefreshLayout>

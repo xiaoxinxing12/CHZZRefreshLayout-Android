@@ -12,7 +12,7 @@
         style="@style/TestBtn"
         android:text="BeginLoadingMore" />
 
-    <org.chzz.refreshlayout.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <org.chzz.refresh.CHZZRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/rl_gridview_refresh"
         style="@style/MatchMatch">
 
@@ -22,5 +22,5 @@
             android:numColumns="2"
             android:overScrollMode="never"
             android:scrollbars="none" />
-    </org.chzz.refreshlayout.CHZZRefreshLayout>
+    </org.chzz.refresh.CHZZRefreshLayout>
 </LinearLayout>
